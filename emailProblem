@@ -1,0 +1,19 @@
+public int emailProblem(String [] emails){
+Set<String> set = new HashSet<>();
+        for(String email : emails){
+        String[] splitEmail = email.split(“@”); 
+        String username = splitEmail[0];
+        //username = email.substring(0, email.indexOf(“@”));
+        //domain = email.substring(email.indexOf(“@”)+1);
+        String domain = splitEmail[1];
+                if(username.contains(“+”)) {
+                      username = username.substring(0,username.indexOf(“+”));
+                }
+                if(username.contains(“.”)){
+		             username = username.replace(“.”,””);
+         }
+        String finalEmail = username + “@” + domain;
+        set.add(finalEmail);
+          }
+return set.size();
+}
